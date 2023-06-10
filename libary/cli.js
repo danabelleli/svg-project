@@ -42,9 +42,9 @@ class CLI {
             .prompt(questions)
             .then((answers) => {
                 let shape;
-                if (answers.shapeType === 'Circle') {
+                if (answers.logoShape === 'Circle') {
                     shape = new Circle();
-                } else if (answers.shapeType === 'Triangle') {
+                } else if (answers.logoShape === 'Triangle') {
                     shape = new Triangle();
                 } else {
                     shape = new Square();
