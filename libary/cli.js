@@ -8,6 +8,9 @@ const questions = [{
     type: 'input',
     message: "Write logo text (max 3 chars)",
     name: 'logoText',
+    validate: function (input) {
+        return (input.length > 3 ? false : true);
+    }
 },
 {
     type: 'input',
@@ -37,11 +40,32 @@ class CLI {
         // ask the user about shapeType, shapeColor, textColor and text
         inquirer
             .prompt(questions)
-            .then((answer) => console.log(answer.logoText, answer.logoTextColor, answer.logoShape, answer.logoShapeColor)
-            );
+            .then((answers) => {
+                let shape;
+                if (answers.shapeType === 'Circle') {
+                    shape = new Circle();
+                } else if (answers.shapeType === 'Triangle') {
+                    shape = new Triangle();
+                } else {
+                    shape = new Square();
+                }
+
+                shape.setColor = answers.logoShapeColor;
+
+                let svg = new SVG();
+
+
+                // set text and shape
+                svg.setText(answers.logoText, answers.logoTextColor);
+                svg.setShape(shape);
+
+                return writeFile('logo.svg', svg.render());
+
+            })
+            ;
 
         // .then(answers)
-        let shape;
+
         // if (answers.shapeType === 'circle') 
         // {shape = new Circle()
         //
@@ -54,13 +78,7 @@ class CLI {
         // shape.setColor(answers.shapeColor);
 
         // create SVG shape
-        let svg = new SVG();
 
-        // set text and shape
-        // svg.setText(answers.text, answers.textColor)
-        // svg.setShape(shape)
-
-        // return writeFile('logo.svg', svg.render())
 
     }
 }
