@@ -49,8 +49,8 @@ class CLI {
                 } else {
                     shape = new Square();
                 }
-
-                shape.setColor = answers.logoShapeColor;
+                // set shape color
+                shape.setColor(answers.logoShapeColor);
 
                 let svg = new SVG();
 
