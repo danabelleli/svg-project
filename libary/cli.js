@@ -36,7 +36,6 @@ const questions = [{
 
 class CLI {
     run() {
-        // return inquirer.prompt()
         // ask the user about shapeType, shapeColor, textColor and text
         inquirer
             .prompt(questions)
@@ -51,35 +50,16 @@ class CLI {
                 }
                 // set shape color
                 shape.setColor(answers.logoShapeColor);
-
+                // create svg object
                 let svg = new SVG();
-
-
-                // set text and shape
+                // set text, text color and shape
                 svg.setText(answers.logoText, answers.logoTextColor);
                 svg.setShape(shape);
-
+                // print to console
+                console.log('Generated logo.svg');
+                // generate the file
                 return writeFile('logo.svg', svg.render());
-
-            })
-            ;
-
-        // .then(answers)
-
-        // if (answers.shapeType === 'circle') 
-        // {shape = new Circle()
-        //
-        //  
-        // }
-        // call other shapes as well
-
-
-        // assign color
-        // shape.setColor(answers.shapeColor);
-
-        // create SVG shape
-
-
+            });
     }
 }
 
