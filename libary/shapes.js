@@ -27,6 +27,7 @@ class Square extends Shape {
 }
 
 module.exports = {
+    Shape,
     Circle,
     Triangle,
     Square

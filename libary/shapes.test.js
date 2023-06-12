@@ -1,6 +1,6 @@
 const { Shape } = require('./shapes');
 
-// Sample for test pass
+// example of a pass
 describe('Shape', () => {
     it('Should set color correctly', () => {
         const shape = new Shape();
@@ -9,7 +9,7 @@ describe('Shape', () => {
     });
 });
 
-// Sample for test faile
+// example of a fail
 describe('Shape', () => {
     it('Should set color correctly', () => {
         const shape = new Shape();
