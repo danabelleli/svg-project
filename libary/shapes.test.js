@@ -1,9 +1,19 @@
-const Shape = require('./shapes');
+const { Shape } = require('./shapes');
 
-describe("Shape", () => {
-    const shape = new Shape();
+// Sample for test pass
+describe('Shape', () => {
+    it('Should set color correctly', () => {
+        const shape = new Shape();
+        shape.setColor('red');
+        expect(shape.color).toBe('red');
+    });
+});
 
-    test("defines setColor()", () => {
-        expect(typeof shape.render()).toBe("function");
+// Sample for test faile
+describe('Shape', () => {
+    it('Should set color correctly', () => {
+        const shape = new Shape();
+        shape.setColor('yellow');
+        expect(shape.color).toBe('red');
     });
 });
